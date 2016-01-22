@@ -28,8 +28,7 @@
      better-defaults
      (clojure :variables
         clojure-enable-fancify-symbols t)
-     (colors :variables
-        colors-enable-nyan-cat-progress-bar t)
+     colors
      dash
      dockerfile
      elixir
@@ -202,11 +201,23 @@ before layers configuration."
 layers configuration."
   (setq neo-vc-integration nil)
   (global-company-mode)
-  (global-linum-mode)
   (global-vi-tilde-fringe-mode -1)
   (fancy-battery-mode 1)
   (setq powerline-default-separator 'arrow)
   (global-prettify-symbols-mode)
+
+  ;; OpenWeather API key and settings for sunshine forecast
+  ;; Also supposed to auto-set location using osx
+  ;; mebbe try to remove manual location set down the road
+  (setq sunshine-show-icons t)
+  (setq sunshine-location "Boulder,CO")
+
+  ;; manually set location for change theme
+  ;; if it doesn't seem to work take this out
+  ;; this layer may be in the midst of re-write and may get fixed
+  (setq calendar-location-name "Boulder, CO")
+  (setq calendar-latitude 40.0274)
+  (setq calendar-longitude 105.2519)
 
   ;; Indentation
   ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
