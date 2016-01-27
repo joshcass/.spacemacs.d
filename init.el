@@ -25,7 +25,6 @@
         auto-completion-enable-sort-by-usage t
         auto-completion-show-snippets-in-popup t
         auto-completion-private-snippets-directory "~/.spacemacs.d/snippets")
-     better-defaults
      (clojure :variables
         clojure-enable-fancify-symbols t)
      colors
@@ -35,7 +34,6 @@
      emacs-lisp
      (geolocation :variables
         geolocation-enable-osx-location-service-support t
-        geolocation-enable-weather-forecast t
         geolocation-enable-automatic-theme-changer t)
      (git :variables
         git-magit-status-fullscreen t)
@@ -197,27 +195,14 @@ before layers configuration."
 
 (defun dotspacemacs/config ()
   "Configuration function.
- This function is called at the very end of Spacemacs initialization after
-layers configuration."
+   This function is called at the very end of Spacemacs initialization after
+   layers configuration."
   (setq neo-vc-integration nil)
   (global-company-mode)
   (global-vi-tilde-fringe-mode -1)
   (fancy-battery-mode 1)
   (setq powerline-default-separator 'arrow)
   (global-prettify-symbols-mode)
-
-  ;; OpenWeather API key and settings for sunshine forecast
-  ;; Also supposed to auto-set location using osx
-  ;; mebbe try to remove manual location set down the road
-  (setq sunshine-show-icons t)
-  (setq sunshine-location "Boulder,CO")
-
-  ;; manually set location for change theme
-  ;; if it doesn't seem to work take this out
-  ;; this layer may be in the midst of re-write and may get fixed
-  (setq calendar-location-name "Boulder, CO")
-  (setq calendar-latitude 40.0274)
-  (setq calendar-longitude 105.2519)
 
   ;; Indentation
   ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
