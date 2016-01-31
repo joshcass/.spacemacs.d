@@ -46,7 +46,7 @@
      osx
      react
      (ruby :variables
-        ruby-version-manager 'rvm)
+        ruby-version-manager 'rbenv)
      ruby-on-rails
      ;; org
      (shell :variables
