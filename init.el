@@ -12,14 +12,9 @@
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      (auto-completion :variables
         auto-completion-return-key-behavior 'complete
-        auto-completion-tab-key-behavior 'cycle
+        auto-completion-tab-key-behavior nil
         auto-completion-complete-with-key-sequence nil
         auto-completion-enable-help-tooltip t
         auto-completion-enable-sort-by-usage t
@@ -32,11 +27,11 @@
      dockerfile
      elixir
      emacs-lisp
+     erlang
      (geolocation :variables
-        geolocation-enable-osx-location-service-support t
+        ;; geolocation-enable-osx-location-service-support t
         geolocation-enable-automatic-theme-changer t)
-     (git :variables
-        git-magit-status-fullscreen t)
+     git
      github
      go
      html
@@ -48,7 +43,8 @@
      (ruby :variables
         ruby-version-manager 'rbenv)
      ruby-on-rails
-     ;; org
+     (org :variables
+        org-enable-github-support t)
      (shell :variables
         shell-default-shell 'ansi-term
         shell-default-height 50
@@ -198,11 +194,19 @@ before layers configuration."
    This function is called at the very end of Spacemacs initialization after
    layers configuration."
   (setq neo-vc-integration nil)
-  (global-company-mode)
   (global-vi-tilde-fringe-mode -1)
   (fancy-battery-mode 1)
   (setq powerline-default-separator 'arrow)
   (global-prettify-symbols-mode)
+
+  ;; use tab for yasnippet completion
+  (global-set-key (kbd "TAB") 'hippie-expand)
+
+  ;; calendar location set for theme-changer-mode
+  (setq calendar-location-name "Boulder, CO"
+        calendar-latitude 40.0274
+        calendar-longitude 105.2519)
+
 
   ;; Indentation
   ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
@@ -227,6 +231,12 @@ before layers configuration."
 
   ;; call indentation
   (code-indent-style)
+
+  ;; org mode config
+  (with-eval-after-load `org
+    (setq org-directory "/Volumes/fozzie/Dropbox \(Personal)\/dev/org")
+    (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
