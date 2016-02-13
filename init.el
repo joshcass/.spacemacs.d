@@ -28,9 +28,6 @@
      elixir
      emacs-lisp
      erlang
-     (geolocation :variables
-        ;; geolocation-enable-osx-location-service-support t
-        geolocation-enable-automatic-theme-changer t)
      git
      github
      go
@@ -196,17 +193,15 @@ before layers configuration."
   (setq neo-vc-integration nil)
   (global-vi-tilde-fringe-mode -1)
   (fancy-battery-mode 1)
-  (setq powerline-default-separator 'arrow)
   (global-prettify-symbols-mode)
+
+  ;; the fancy ones are nice but don't render properly
+  ;; in regular non mac-port emacs which is superior
+  ;; so this is a small compromise
+  (setq powerline-default-separator 'nil)
 
   ;; use tab for yasnippet completion
   (global-set-key (kbd "TAB") 'hippie-expand)
-
-  ;; calendar location set for theme-changer-mode
-  (setq calendar-location-name "Boulder, CO"
-        calendar-latitude 40.0274
-        calendar-longitude 105.2519)
-
 
   ;; Indentation
   ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
