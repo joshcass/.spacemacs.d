@@ -38,10 +38,12 @@ values."
      github
      go
      html
+     java
      (javascript :variables
                  javascript-disable-tern-port-files t)
      markdown
      osx
+     python
      react
      (ruby :variables
            ruby-version-manager 'rbenv)
@@ -55,6 +57,7 @@ values."
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      spotify
+     sql
      syntax-checking
      (version-control :variables
                       version-control-diff-tool 'diff-hl
@@ -117,7 +120,7 @@ values."
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
    dotspacemacs-startup-recent-list-size 5
    ;; Default major mode of the scratch buffer (default `text-mode')
-   dotspacemacs-scratch-mode 'markdown-mode
+   dotspacemacs-scratch-mode 'text
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
