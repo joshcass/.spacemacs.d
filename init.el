@@ -120,7 +120,7 @@ values."
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
    dotspacemacs-startup-recent-list-size 5
    ;; Default major mode of the scratch buffer (default `text-mode')
-   dotspacemacs-scratch-mode 'text
+   dotspacemacs-scratch-mode 'text-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
@@ -268,17 +268,14 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
    This function is called at the very end of Spacemacs initialization after
   layers configuration. You are free to put any user code."
+  (setq powerline-default-separator 'nil)
+  (spaceline-compile)
   (setq neo-vc-integration nil)
   (global-vi-tilde-fringe-mode -1)
   (fancy-battery-mode 1)
   (global-prettify-symbols-mode)
   (global-centered-cursor-mode)
   (global-subword-mode)
-
-  ;; the fancy ones are nice but don't render properly
-  ;; in regular non mac-port emacs which is superior
-  ;; so this is a small compromise
-  (setq powerline-default-separator 'nil)
 
   ;; use tab for yasnippet completion
   (global-set-key (kbd "TAB") 'hippie-expand)
