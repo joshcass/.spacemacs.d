@@ -306,7 +306,7 @@ in `dotspacemacs/user-config'."
 
   ;; org mode config
   (with-eval-after-load `org
-    (setq org-directory "/Volumes/fozzie/Dropbox \(Personal)\/dev/org")
+    (setq org-directory "~/iCloud/dev/org")
     (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
     )
   )
