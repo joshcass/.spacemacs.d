@@ -92,7 +92,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(vi-tilde-fringe)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -301,7 +301,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil advises quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
@@ -334,11 +334,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq powerline-default-separator 'arrow)
+  (setq powerline-default-separator 'nil)
   (spaceline-compile)
   (setq neo-vc-integration nil)
-  (global-vi-tilde-fringe-mode -1)
-  (fancy-battery-mode 1)
   (global-prettify-symbols-mode)
   (global-centered-cursor-mode)
   (global-subword-mode)
@@ -383,6 +381,14 @@ you should place your code here."
     (setq org-directory "~/iCloud/dev/org")
     (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
     )
+
+  ;; GUI options set for each new frame
+  (add-hook 'after-make-frame-functions
+            (lambda (frame)
+              (select-frame frame)
+              (toggle-frame-fullscreen)
+              )
+            )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
