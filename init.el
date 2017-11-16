@@ -64,6 +64,7 @@ values."
      nginx
      osx
      python
+     ranger
      react
      (ruby :variables
            ruby-version-manager 'rbenv
@@ -94,7 +95,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(vi-tilde-fringe)
+   dotspacemacs-excluded-packages '(vi-tilde-fringe neotree)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -353,6 +354,10 @@ you should place your code here."
 
   ;; use tab for yasnippet completion
   (global-set-key (kbd "TAB") 'hippie-expand)
+
+  ;; ranger preferences
+  (setq ranger-cleanup-on-disable t)
+  (setq ranger-parent-depth 1)
 
   ;; Indentation
   ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
