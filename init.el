@@ -76,6 +76,7 @@ values."
             shell-default-shell 'ansi-term
             shell-default-height 50
             shell-default-position 'bottom)
+     (shell-scripts)
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      spotify
