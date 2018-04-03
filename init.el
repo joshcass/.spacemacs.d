@@ -336,6 +336,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; Fixes undefined functions at startup - should be fixed in future release https://github.com/syl20bnr/spacemacs/issues/9563
+  (require 'helm)
+  (require 'tramp)
+
   (setq powerline-default-separator 'nil)
   (spaceline-compile)
   (setq neo-vc-integration nil)
