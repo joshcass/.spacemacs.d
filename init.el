@@ -351,6 +351,8 @@ you should place your code here."
   (global-prettify-symbols-mode)
   (global-centered-cursor-mode)
   (global-subword-mode)
+
+  ;; projectile got real slow without this :(
   (setq projectile-enable-caching t)
 
   ;; lets use utf-8 as the standard everywhere
@@ -363,10 +365,6 @@ you should place your code here."
 
   ;; use tab for yasnippet completion
   (global-set-key (kbd "TAB") 'hippie-expand)
-
-  ;; ranger preferences
-  (setq ranger-cleanup-on-disable t)
-  (setq ranger-parent-depth 1)
 
   ;; Indentation
   ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
