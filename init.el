@@ -62,7 +62,6 @@ values."
                  javascript-disable-tern-port-files nil)
      markdown
      nginx
-     osx
      python
      react
      (ruby :variables
@@ -70,8 +69,6 @@ values."
            ruby-test-runner 'rspec
            ruby-insert-encoding-magic-comment nil)
      ruby-on-rails
-     (org :variables
-          org-enable-github-support t)
      (shell :variables
             shell-default-shell 'ansi-term
             shell-default-height 50
@@ -171,10 +168,10 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Hack"
-                               :size 14
+                               :size 16
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.4)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -346,7 +343,7 @@ you should place your code here."
   (require 'tramp)
 
   ;; general preferred settings
-  (setq powerline-default-separator 'utf-8)
+  (setq powerline-default-separator 'arrow)
   (spaceline-compile)
   (setq neo-vc-integration nil)
   (global-prettify-symbols-mode)
@@ -366,6 +363,11 @@ you should place your code here."
 
   ;; use tab for yasnippet completion
   (global-set-key (kbd "TAB") 'hippie-expand)
+
+  ;; set location for theme changer
+  (setq calendar-location-name "Lakewood, CO"
+        calendar-latitude 39.7
+        calendar-longitude -105.1)
 
   ;; Indentation
   ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
@@ -390,12 +392,6 @@ you should place your code here."
 
   ;; call indentation
   (code-indent-style)
-
-  ;; org mode config
-  (with-eval-after-load `org
-    (setq org-directory "~/iCloud/dev/org")
-    (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
-    )
 
   ;; GUI options set for each new frame
   (add-hook 'after-make-frame-functions
