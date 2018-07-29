@@ -279,7 +279,7 @@ values."
    ;; If non nil show the color guide hint for transient state keys. (default t)
    dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen. (default t)
@@ -367,6 +367,11 @@ you should place your code here."
   ;; use tab for yasnippet completion
   (global-set-key (kbd "TAB") 'hippie-expand)
 
+  ;; set location for geolocation layer
+  (setq calendar-location-name "Lakewood, CO"
+        calendar-latitude 39.7
+        calendar-longitude -105.1)
+
   ;; Indentation
   ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
   ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
@@ -395,7 +400,7 @@ you should place your code here."
   (with-eval-after-load `org
     (setq org-directory "~/iCloud/dev/org")
     (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
-    )
+  )
 
   ;; GUI options set for each new frame
   (add-hook 'after-make-frame-functions
