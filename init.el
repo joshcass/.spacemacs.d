@@ -350,9 +350,6 @@ you should place your code here."
   (global-centered-cursor-mode)
   (global-subword-mode)
 
-  ;; projectile got real slow without this :(
-  (setq projectile-enable-caching t)
-
   ;; lets use utf-8 as the standard everywhere
   (set-language-environment 'utf-8)
   (setq locale-coding-system 'utf-8)
