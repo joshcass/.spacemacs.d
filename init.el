@@ -417,6 +417,7 @@ you should place your code here."
   (global-prettify-symbols-mode)
   (global-centered-cursor-mode)
   (global-subword-mode)
+  (setq treemacs-show-hidden-files 'nil)
 
   ;; lets use utf-8 as the standard everywhere
   (set-language-environment 'utf-8)
