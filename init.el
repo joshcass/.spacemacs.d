@@ -30,37 +30,33 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     asm
      (auto-completion :variables
-                      auto-completion-return-key-behavior 'complete
-                      auto-completion-tab-key-behavior nil
-                      auto-completion-complete-with-key-sequence nil
-                      auto-completion-enable-help-tooltip t
-                      auto-completion-enable-sort-by-usage t
-                      auto-completion-show-snippets-in-popup t
-                      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets")
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-sort-by-usage t)
      (clojure :variables
               clojure-enable-fancify-symbols t)
+     coffeescript
      colors
      csv
-     dash
      docker
-     elixir
      emacs-lisp
-     erlang
+     emoji
      (geolocation :variables
                   geolocation-enable-automatic-theme-changer t
                   geolocation-enable-location-service t)
      git
      github
-     go
-     helm
      html
+     (ivy :variables
+          ivy-enable-advanced-buffer-information t
+          ivy-wrap t
+          ivy-height 25)
      java
      (javascript :variables
                  javascript-disable-tern-port-files nil)
      markdown
-     nginx
+     neotree
+     org
      python
      react
      (ruby :variables
@@ -72,7 +68,7 @@ This function should only modify configuration layer settings."
             shell-default-shell 'ansi-term
             shell-default-height 50
             shell-default-position 'bottom)
-     (shell-scripts)
+     shell-scripts
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      spotify
@@ -90,11 +86,11 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(yasnippet-snippets)
+   dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(vi-tilde-fringe)
+   dotspacemacs-excluded-packages '(vi-tilde-fringe treemacs)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -417,7 +413,8 @@ you should place your code here."
   (global-prettify-symbols-mode)
   (global-centered-cursor-mode)
   (global-subword-mode)
-  (setq treemacs-show-hidden-files 'nil)
+  (global-company-mode)
+  (fancy-battery-mode)
 
   ;; lets use utf-8 as the standard everywhere
   (set-language-environment 'utf-8)
@@ -427,13 +424,13 @@ you should place your code here."
   (set-terminal-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
 
-  ;; use tab for yasnippet completion
-  (global-set-key (kbd "TAB") 'hippie-expand)
-
   ;; set location for theme changer
   (setq calendar-location-name "Lakewood, CO"
         calendar-latitude 39.7
         calendar-longitude -105.1)
+
+  ;; ranger
+  (setq ranger-cleanup-on-disable t)
 
   ;; Indentation
   ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
