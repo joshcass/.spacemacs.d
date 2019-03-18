@@ -40,7 +40,6 @@ This function should only modify configuration layer settings."
      csv
      docker
      emacs-lisp
-     emoji
      (geolocation :variables
                   geolocation-enable-automatic-theme-changer t
                   geolocation-enable-location-service t)
@@ -74,6 +73,7 @@ This function should only modify configuration layer settings."
      spotify
      sql
      syntax-checking
+     unicode-fonts
      (version-control :variables
                       version-control-diff-tool 'diff-hl
                       version-control-global-margin t)
@@ -429,8 +429,7 @@ you should place your code here."
         calendar-latitude 39.7
         calendar-longitude -105.1)
 
-  ;; ranger
-  (setq ranger-cleanup-on-disable t)
+  (setq neo-theme 'nerd)
 
   ;; Indentation
   ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
@@ -461,6 +460,7 @@ you should place your code here."
             (lambda (frame)
               (select-frame frame)
               (toggle-frame-fullscreen)
+              (dotspacemacs/sync-configuration-layers)
               )
             )
   )
