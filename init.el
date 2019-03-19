@@ -73,7 +73,6 @@ This function should only modify configuration layer settings."
      spotify
      sql
      syntax-checking
-     unicode-fonts
      (version-control :variables
                       version-control-diff-tool 'diff-hl
                       version-control-global-margin t)
@@ -431,29 +430,16 @@ you should place your code here."
 
   (setq neo-theme 'nerd)
 
-  ;; Indentation
-  ;; from https://github.com/jmfurlott/config/blob/master/.spacemacs through
-  ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
-  ;;
-  (defun my-setup-indent (n)
-    ;; web development
-    (setq coffee-tab-width n) ; coffeescript
-    (setq javascript-indent-level n) ; javascript-mode
-    (setq js-indent-level n) ; js-mode
-    (setq js2-basic-offset n) ; js2-mode
-    (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-    (setq web-mode-css-indent-offset n) ; web-mode, css in html file
-    (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
-    (setq css-indent-offset n) ; css-mode
-    )
-
-  (defun code-indent-style ()
-    (setq indent-tabs-mode nil) ; use space instead of tab
-    (my-setup-indent 2) ; indent 2 spaces width
-    )
-
-  ;; call indentation
-  (code-indent-style)
+  ;; 2 spaces!
+  (setq coffee-tab-width 2 ; coffeescript
+        javascript-indent-level 2 ; javascript-mode
+        js-indent-level 2 ; js-mode
+        js2-basic-offset 2 ; js2-mode
+        web-mode-markup-indent-offset 2 ; web-mode, html tag in html file
+        web-mode-css-indent-offset 2 ; web-mode, css in html file
+        web-mode-code-indent-offset 2 ; web-mode, js code in html file
+        css-indent-offset 2 ; css-mode
+        indent-tabs-mode nil) ; use space instead of tab
 
   ;; GUI options set for each new frame
   (add-hook 'after-make-frame-functions
