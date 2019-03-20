@@ -45,11 +45,10 @@ This function should only modify configuration layer settings."
                   geolocation-enable-location-service t)
      git
      github
+     (helm :variables
+           helm-no-header t
+           spacemacs-helm-rg-max-column-number 1024)
      html
-     (ivy :variables
-          ivy-enable-advanced-buffer-information t
-          ivy-wrap t
-          ivy-height 25)
      java
      (javascript :variables
                  javascript-disable-tern-port-files nil)
@@ -328,9 +327,9 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-persistent-server t
 
    ;; List of search tool executable names. Spacemacs uses the first installed
-   ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
-   ;; (default '("ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   ;; tool of the list. Supported tools are `rg', `ag', `pt', `ack' and `grep'.
+   ;; (default '("rg" "ag" "pt" "ack" "grep"))
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
 
    ;; Format specification for setting the frame title.
    ;; %a - the `abbreviated-file-name', or `buffer-name'
