@@ -54,7 +54,8 @@ This function should only modify configuration layer settings."
                  javascript-disable-tern-port-files nil)
      markdown
      neotree
-     org
+     (org :variables
+          org-projectile-file "~/google_drive/org/todos.org")
      python
      react
      (ruby :variables
@@ -439,6 +440,10 @@ you should place your code here."
         web-mode-code-indent-offset 2 ; web-mode, js code in html file
         css-indent-offset 2 ; css-mode
         indent-tabs-mode nil) ; use space instead of tab
+
+  (with-eval-after-load 'org-agenda
+    (require 'org-projectile)
+    (push (org-projectile:todo-files) org-agenda-files))
 
   ;; GUI options set for each new frame
   (add-hook 'after-make-frame-functions
