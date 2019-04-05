@@ -40,6 +40,7 @@ This function should only modify configuration layer settings."
      csv
      docker
      emacs-lisp
+     emoji
      (geolocation :variables
                   geolocation-enable-automatic-theme-changer t
                   geolocation-enable-location-service t)
